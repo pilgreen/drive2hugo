@@ -7,7 +7,7 @@ The goal of this project was to allow Google Documents to act as content files f
 
 One of the major drawbacks of Hugo is that it requires files be saved directly on the server. Like many other businesses, we have vendors, management systems, and preferred employee workflows that don't mesh well with a remote repository of code. We heavily rely on Google Drive, however. By building a bridge between Hugo and Drive, I can create the necessary content files automatically using a cron, and our employees can comofortably work on a platform that they know well.
 
-The `hugo.drive` command simply saves Google Documents, by folder, into corresponding folders inside the hugo project. I chose Go to both learn the language and provide a way to run this program on both Mac and Linux. This is my first Go program, and I used quite a bit of code from the [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go).
+The `hugo.drive` command simply saves Google Documents, by folder, into corresponding folders inside the Hugo project. I chose Go to both learn the language and provide a way to run this program on both Mac and Linux. This is my first Go program, and I used quite a bit of code from the [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go).
 
 ## Configuration/Flags
 
@@ -24,10 +24,10 @@ You must create a configuration file for the program to run. You can either name
 
 ```json
 {
-  folders: [
+  "folders": [
     {
-      "id": "*ID of the folder in Drive*",
-      "path": "*path of the folder on the local system (e.g. /content/articles)*"
+      "id": "ID of the folder in Drive",
+      "path": "path of the folder on the local system (e.g. /content/articles)"
     }
   ]
 }
@@ -36,7 +36,7 @@ You must create a configuration file for the program to run. You can either name
 
 **-modified bool**
 
-The modified tag will create the file *hd.modified.txt* in the current working directory containing the RFC 3339 timestamp of the last run. Each additional pull will only look for files in the configured folders that have been modified since that time, and update the *hd.modified.txt* file.
+The modified tag will create the file *hd.modified.txt* in the current working directory containing the RFC 3339 timestamp of the last run. Each additional pull will only look for files in the configured folders that have been modified since that time, and again update the *hd.modified.txt* file.
 
 ## Final thoughts
 
