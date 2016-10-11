@@ -79,7 +79,7 @@ func tokenCacheFile() (string, error) {
   if err != nil {
     return "", err
   }
-  tokenCacheDir := filepath.Join(usr.HomeDir, ".drivecontent")
+  tokenCacheDir := filepath.Join(usr.HomeDir, ".hugo.drive")
   os.MkdirAll(tokenCacheDir, 0700)
   return filepath.Join(tokenCacheDir, url.QueryEscape("auth-token.json")), err
 }
