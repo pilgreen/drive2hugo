@@ -11,14 +11,14 @@ The `hugo.drive` command simply saves Google Documents, by folder, into correspo
 
 ## Configuration/Flags
 
-**-secret string (default "hd.secret.json")**
+### -secret string (default "hd.secret.json")
 
 To authenticate, you must create a Google App and download a JSON credential file. The [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go) tells you how to do this. Rename that file to *hd.secret.json* and place it in your current working directory, or use the -secret flag to pass a filepath to your favorite place.
 
 When you first run the program, it will provide a url to paste into your browser. After authenticating, the token response will be saved to $HOME/.hugo.drive/auth-token.json. **It's important to know what user authenticated if you want to put this on a cron later**. This is a one-time process and all but one simplification function came directly from Google.
 
 
-**-config string (default "hd.config.json")**
+### -config string (default "hd.config.json")
 
 You must create a configuration file for the program to run. You can either name the file *hd.config.json* and place it in the current working directory, or you can pass in a filepath to wherever you like using the -config flag. Below is an example of the structure.
 
@@ -34,7 +34,7 @@ You must create a configuration file for the program to run. You can either name
 ```
 
 
-**-modified bool**
+### -modified bool
 
 The modified tag will create the file *hd.modified.txt* in the current working directory containing the RFC 3339 timestamp of the last run. Each additional pull will only look for files in the configured folders that have been modified since that time, and again update the *hd.modified.txt* file.
 
