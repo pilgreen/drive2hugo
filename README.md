@@ -27,7 +27,7 @@ You must create a configuration file for the program to run. You can either name
   "folders": [
     {
       "id": "ID of the folder in Drive",
-      "path": "path of the folder on the local system (e.g. /content/articles)"
+      "path": "path of the folder on the local system (e.g. ./content/articles)"
     }
   ]
 }
