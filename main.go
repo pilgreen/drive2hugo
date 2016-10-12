@@ -10,7 +10,7 @@ import (
   "path/filepath"
   "time"
 
-  "github.com/pilgreen/hugo.drive/auth"
+  "github.com/pilgreen/hugo-drive/auth"
   "google.golang.org/api/drive/v3"
 )
 

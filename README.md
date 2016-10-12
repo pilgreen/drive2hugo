@@ -1,4 +1,4 @@
-# hugo.drive
+# hugo-drive
 A bridge between Google Documents and Hugo
 
 ## Overview
@@ -7,7 +7,7 @@ The goal of this project was to allow Google Documents to act as content files f
 
 One of the major drawbacks of Hugo is that it requires files be saved directly on the server. Like many other businesses, we have vendors, management systems, and preferred employee workflows that don't mesh well with a remote repository of code. We heavily rely on Google Drive, however. By building a bridge between Hugo and Drive, I can create the necessary content files automatically using a cron, and our employees can comofortably work on a platform that they know well.
 
-The `hugo.drive` command simply saves Google Documents, by folder, into corresponding folders inside the Hugo project. I chose Go to both learn the language and provide a way to run this program on both Mac and Linux. This is my first Go program, and I used quite a bit of code from the [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go).
+The `hugo-drive` command simply saves Google Documents, by folder, into corresponding folders inside the Hugo project. I chose Go to both learn the language and provide a way to run this program on both Mac and Linux. This is my first Go program, and I used quite a bit of code from the [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go).
 
 ## Configuration/Flags
 
@@ -15,7 +15,7 @@ The `hugo.drive` command simply saves Google Documents, by folder, into correspo
 
 To authenticate, you must create a Google App and download a JSON credential file. The [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go) tells you how to do this. Rename that file to *hd.secret.json* and place it in your current working directory, or use the -secret flag to pass a filepath to your favorite place.
 
-When you first run the program, it will provide a url to paste into your browser. After authenticating, the token response will be saved to $HOME/.hugo.drive/auth-token.json. **It's important to know what user authenticated if you want to put this on a cron later**. This is a one-time process and all but one simplification function came directly from Google.
+When you first run the program, it will provide a url to paste into your browser. After authenticating, the token response will be saved to $HOME/.hugo-drive/auth-token.json. **It's important to know what user authenticated if you want to put this on a cron later**. This is a one-time process and all but one simplification function came directly from Google.
 
 
 ### -config string (default "hd.config.json")
