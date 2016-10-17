@@ -10,7 +10,7 @@ import (
   "path/filepath"
   "time"
 
-  "github.com/pilgreen/hugo-drive/auth"
+  "github.com/pilgreen/drive2hugo/auth"
   "google.golang.org/api/drive/v3"
 )
 
@@ -35,7 +35,7 @@ func loadConfig(file string) (*Config, error) {
 }
 
 func modTime() (string, error) {
-  b, err := ioutil.ReadFile("hd.modified.txt")
+  b, err := ioutil.ReadFile("d2h.modified.txt")
   if err != nil {
     return "", err
   }
@@ -44,7 +44,7 @@ func modTime() (string, error) {
 }
 
 func saveModFile() {
-  f, err := os.Create("hd.modified.txt")
+  f, err := os.Create("d2h.modified.txt")
   if err != nil {
     log.Fatalf("Unable to create modified file: %v\n", err)
   }
@@ -55,8 +55,8 @@ func saveModFile() {
 }
 
 func main() {
-  sPtr := flag.String("secret", "hd.secret.json", "File downloaded from Google Console")
-  cPtr := flag.String("config", "hd.config.json", "Path to the config file")
+  sPtr := flag.String("secret", "d2h.secret.json", "File downloaded from Google Console")
+  cPtr := flag.String("config", "d2h.config.json", "Path to the config file")
   mPtr := flag.Bool("modified", false, "Only pulls files modified since the last run")
   flag.Parse()
 
