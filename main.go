@@ -55,13 +55,12 @@ func saveModFile() {
 }
 
 func main() {
-  sPtr := flag.String("secret", "d2h.secret.json", "File downloaded from Google Console")
   cPtr := flag.String("config", "d2h.config.json", "Path to the config file")
   mPtr := flag.Bool("modified", false, "Only pulls files modified since the last run")
   flag.Parse()
 
   // Get the Service
-  srv, err := auth.GetService(*sPtr)
+  srv, err := auth.GetService(*cPtr)
   if err != nil {
     log.Fatalf("Unable to get the Drive Service: %v", err)
   }
