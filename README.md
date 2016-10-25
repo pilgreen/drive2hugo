@@ -14,7 +14,7 @@ The `drive2hugo` command simply saves Google Documents, by folder, into correspo
 
 ### -config string (default "d2h.config.json")
 
-To authenticate, you must create a Google App and download a JSON credential file. The [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go) tells you how to do this. Rename that file to *d2h.config.json* and place it in your current working directory, or use the -config flag to pass a filepath to your favorite place.
+To authenticate, you must create a Google App and download a JSON credential file. The [Google documentation](https://developers.google.com/drive/v3/web/quickstart/go) tells you how to do this. Rename that file to *d2h.config.json* and place it in your current working directory, or use the `-config` flag to pass a filepath to your favorite place.
 
 When you first run the program, it will provide a url to paste into your browser. After authenticating, the token response will be saved to $HOME/.drive2hugo/auth-token.json. **It's important to know what user authenticated if you want to put this on a cron later**. This is a one-time process and all but one simplification function came directly from Google.
 
