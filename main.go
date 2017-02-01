@@ -103,15 +103,14 @@ func main() {
               log.Fatalf("Unable to download file: %v", err)
             }
 
-            filename := file.Id + ".md"
-            path := filepath.Join(folder.Path, filename)
+            filename := filepath.Join(folder.Path, file.Name + ".md")
             body, _ := ioutil.ReadAll(req.Body)
 
-            err = ioutil.WriteFile(path, body, 0644)
+            err = ioutil.WriteFile(filename, body, 0644)
             if err != nil {
-              log.Printf("Problem writing %s: %v\n", file.Name, err)
+              log.Printf("Problem writing %s: %v\n", filename, err)
             } else {
-              log.Printf("%s written as %s\n", file.Name, path)
+              log.Printf("%s ... \u2713\n", filename)
             }
           } else {
             log.Printf("all done with folder: %s\n", folder.Id)

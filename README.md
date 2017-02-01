@@ -41,6 +41,4 @@ The modified tag will create the file *d2h.modified.txt* in the current working 
 
 I tried to keep this process separate from Hugo itself, partly because you have to but also because it just feels right. I like being able to mix and match what sections are linked to Drive and what sections are static. Sure, it means two commands to build the site each time, but a tiny Makefile works really well for me.
 
-If you don't have Go setup on your machine, I have included binaries for my two targets in the /bin folder.
-
 If you are an avid Go programmer and you see some antipatterns or something I did wrong, please let me know. I'm very new and really interested.
